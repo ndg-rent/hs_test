@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Add a New Account {% endblock %}</h1>
+    <form method="post">
+        <label for="title">Account name</label>
+        <br>
+        <input type="text" name="name"
+               placeholder="Account name"
+               value="{{ request.form['name'] }}"></input>
+        <br>
+
+        <label for="title">Deposit amount</label>
+        <br>
+        <input type="text" name="amount"
+               placeholder="1"
+               value="{{ request.form['amount'] }}"></input>
+        <br>
+<button type="submit">Submit</button>
+    </form>
+{% endblock %}

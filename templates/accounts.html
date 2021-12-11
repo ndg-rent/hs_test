@@ -1,0 +1,65 @@
+{% extends 'base_account.html' %}
+
+{% block content %}
+    <h1>{% block title %} Accounts {% endblock %}</h1>
+    {% for account in accounts %}
+        <div class='customer'>
+            <h3>{{ account['id']|string }} - {{ account['name'] }} - {{ account['amount']|string}}.00</h3>
+        </div>
+    {% endfor %}
+
+    <div style="color:#fff; background-color:black", class="jumbotron">
+      <h1>Select Customer</h1>
+    </div>
+
+    <form class="form-inline" method="POST" action="{{ url_for('transfers') }}">
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon">Please select</span>
+            <select name="acct_id" class="selectpicker form-control">
+              {% for account in accounts %}
+              <option value="{{ account.id }}">{{account.id|string}}  {{ customer.name }}</option>
+              {% endfor %}
+            </select>
+    </div>
+    <button type="submit" class="btn btn-default">Go</button>
+  </div>
+
+{% endblock %}
+
+
+
+  <!--
+{% block content %}
+    <h1>{% block title %} Accounts {% endblock %}</h1>
+
+    <div class="account">
+      <nav style="margin-top:25px;margin-left:45px">
+        <a class="btn btn-primary" href="{{url_for('account') }}">Create a new account</a>
+      </nav>
+      <br>
+    </div>
+
+    {% for account in accountss %}
+        <div class='account'>
+            <h3>{{ account['id']|string }} - {{ account['name'] }} - {{ account['amount']|string}}.00</h3>
+        </div>
+    {% endfor %}
+
+    <div style="color:#fff; background-color:black", class="jumbotron">
+      <h1>Select Account to see Transfers</h1>
+    </div>
+
+    <form class="form-inline" method="POST" action="{{ url_for('transfers') }}">
+      <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon">Please select</span>
+            <select name="acc_id" class="selectpicker form-control">
+              {% for a in accounts %}
+              <option value="{{ a.id }}">{{ a.id }}  {{ a.name }}</option>
+              {% endfor %}
+            </select>
+    </div>
+    <button type="submit" class="btn btn-default">Go</button>
+  </div>
+-->

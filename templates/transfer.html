@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="with=device-width, initial-scale=1">
+
+    <title>New transfer</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='bootstrap.min.css')}}" >
+
+
+  </head>
+
+  <body>
+    <br>
+    <br>
+
+    <div class="container">
+
+      <form action="/process" method="post">
+        <div class="form-group">
+          <label for="accountTo">Select credited account</label>
+          <input type="text" id="inputName" class="form-control" placeholder="Select account to send..">
+        </div>
+        <div class="form-group">
+          <label for="amount">Amount</label>
+            <textarea class="form-control" id="amount" placeholder="Insert amount here.."></textarea>
+        </div>
+        <br>
+        <button class="btn btn_lg btn-primary btn-block" type="submit">Submit Your Transfer</button>
+      </form>
+
+    </div> <!-- /container -->
+
+  </body>
